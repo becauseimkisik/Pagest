@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  Pagest.webapi:
+    image: ${DOCKER_REGISTRY-}Pagestwebapi
+    build:
+      context: .
+      dockerfile: Api/Pagest.WebApi/Dockerfile
+    ports:
+      - "7001:5000"
+    volumes: 
+      - /home/Pagest_root/:/app/wwwroot
+
+volumes:
+  pgdata:

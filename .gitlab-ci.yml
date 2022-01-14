@@ -1,0 +1,22 @@
+image: docker:latest
+
+services:
+  - docker:dind
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  only:
+    - master
+  script:
+    - docker-compose build
+
+deploy:
+  stage: deploy
+  #when: manual
+  only:
+    - master
+  script:
+    - docker-compose up -d  

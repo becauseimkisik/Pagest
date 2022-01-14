@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
+    <DockerfileContext>..\..</DockerfileContext>
+    <DockerComposeProjectPath>..\..\docker-compose.dcproj</DockerComposeProjectPath>
+	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>Pagest.WebApi.xml</DocumentationFile>
+	<NoWarn>1701;1702;1591</NoWarn>
+	<WarningLevel>5</WarningLevel>
+  </PropertyGroup>
+
+  <ItemGroup>
+
+	  <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.7" />
+
+	  <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.13" />
+
+	  <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.1" />
+	  <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="5.5.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Application\Pagest.Application\Pagest.Application.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Pagest.Infrastructure.Authentication\Pagest.Infrastructure.Authentication.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Pagest.Infrastructure.Persistence\Pagest.Infrastructure.Persistence.csproj" />
+  </ItemGroup>
+
+
+</Project>
